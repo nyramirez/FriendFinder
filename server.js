@@ -1,16 +1,14 @@
 let express = require("express");
+
 let app = express();
-
-let bodyParser = require("body-parser");
-
 let PORT = process.env.PORT || 8080;
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-require("./app/routing/apiRoutes")(app);
-require("./app/routing/htmlRoutes")(app);
+require("./app/routing/apiRoutes.js")(app);
+require("./app/routing/htmlRoutes.js")(app);
 
 app.listen(PORT, function() {
-    console.log("You are online on localhost:" + PORT);
+    console.log("You are online on http://localhost:" + PORT);
   });

@@ -1,0 +1,16 @@
+[
+    {
+        
+        "name": "Nestor Ramirez",
+        "facelink": "",
+        "scores": ["1","1","1","1","1","1","1","1","1","1"],
+        "routeName": "nestorramirez"
+    },
+    {
+        
+        "name": "Fred Dominguez",
+        "faceLink": "",
+        "scores": ["4","1","5","1","2","1","1","4","5","5"],
+        "routeName": "freddominguez"
+    }
+]

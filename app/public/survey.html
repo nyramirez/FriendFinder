@@ -7,117 +7,202 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Friend Finder Survey</title>
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
     <!-- Bootstrap CSS link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
+
 </head>
 
 <body>
     <div class="container">
-        <div class="row">
+        <div class="row mt-4">
             <h1>FriendFinder Survey</h1>
         </div>
         <br>
-        <div class="row">
-            <h2>Please answer as correctly as possible</h2>
-        </div>
-        <div class="row">
-            <div class="col">
-                <form>
-                    <div class="form-group">
-                        <label for="user_Name">Name</label>
-                        <input type="text" class="form-control" id="userName" aria-describedby="emailHelp" placeholder="Enter Full Name">
-                        <small class="form-text text-muted">Please enter your Firstname followed by your
-                            Lastname.</small>
-                    </div>
-                </form>
+        <div id="surveyHeader" class=".mx-auto">
+            <div class="row">
+                <h2>Please answer as correctly as possible</h2>
             </div>
-            <div class="col">
-                <form>
+            <div class="row">
+                <h6>We do not promess any permanent hapiness... just temporal :P</h6>
+            </div>
+        </div>
+        <hr>
+        <div class="row" id="customerInformation">
+            <div class="col-lg-6 col-sm-12">
+                <form class="customerInfo">
                     <div class="form-group">
-                        <label for="photo_image">Link to Photo Image</label>
-                        <input type="text" class="form-control" id="photoImage" placeholder="Link to Photo Image">
+                        <label for="user_Name">Full Name</label>
+                        <input type="text" class="form-control" id="userName" placeholder="Please enter your Full Name">
+                        <small class="form-text text-muted">Please enter your Firstname and Lastname</small>
                     </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+                <div class="form-group">
+                    <label for="facebookContact">Link to Facebook Contact</label>
+                    <input type="text" class="form-control" id="facebookLink" placeholder="Please input the link to you Facebook">
+                    <small class="form-text text-muted">What is your facebook page?</small>
+                </div>
                 </form>
             </div>
         </div>
         <hr>
-        <div class="row">
-            <h3>Question 1</h3>
-        </div>
-        <div class="form-group col-sm-12">
-            <label for="goingOut">You enjoy going out...Please get me out of my house!!</label>
-            <select id="goingOut" class="form-control">
-                <option selected>Choose one option</option>
-                <option>5 (Strongly Agree)</option>
-                <option>4 (Agree)</option>
-                <option>3 (I do not really care)</option>
-                <option>2 (Disagree)</option>
-                <option>1 (Strongly Disagree)</option>
-            </select>
-        </div>
-        <div class="row">
-            <h3>Question 2</h3>
-        </div>
-        <div class="form-group col-sm-12">
-            <label for="dance">You like to dance, any music. I do not care I just need some noise.</label>
-            <select id="dance" class="form-control">
-                <option selected>Choose one option</option>
-                <option>5 (Strongly Agree)</option>
-                <option>4 (Agree)</option>
-                <option>3 (I do not really care)</option>
-                <option>2 (Disagree)</option>
-                <option>1 (Strongly Disagree)</option>
-            </select>
-        </div>
-        <div class="row">
-            <h3>Question 3</h3>
-        </div>
-        <div class="form-group col-sm-12">
-            <label for="drink">You like to drink, it does not matter if it is water aslong as you are surrounded by
-                people.</label>
-            <select id="drink" class="form-control">
-                <option selected>Choose one option</option>
-                <option>5 (Strongly Agree)</option>
-                <option>4 (Agree)</option>
-                <option>3 (I do not really care)</option>
-                <option>2 (Disagree)</option>
-                <option>1 (Strongly Disagree)</option>
-            </select>
-        </div>
-        <div class="row">
-            <h3>Question 4</h3>
-        </div>
-        <div class="form-group col-sm-12">
-            <label for="newExp">You are open to new experiences... I do not know what that is but I want to know what
-                it tastes like.</label>
-            <select id="newExp" class="form-control">
-                <option selected>Choose one option</option>
-                <option>5 (Strongly Agree)</option>
-                <option>4 (Agree)</option>
-                <option>3 (I do not really care)</option>
-                <option>2 (Disagree)</option>
-                <option>1 (Strongly Disagree)</option>
-            </select>
-        </div>
-        <div class="row">
-            <h3>Question 5</h3>
-        </div>
-        <div class="form-group col-sm-12">
-            <label for="festivals">You love festivals and special events.</label>
-            <select id="festivals" class="form-control">
-                <option selected>Choose one option</option>
-                <option>5 (Strongly Agree)</option>
-                <option>4 (Agree)</option>
-                <option>3 (I do not really care)</option>
-                <option>2 (Disagree)</option>
-                <option>1 (Strongly Disagree)</option>
-            </select>
-        </div>
-        <div class="row">
-            <button id="submit" type="submit" class="btn btn-primary">Submit</button>
-        </div>
+        <form>
+            <div class="row question mt-5">
+                <h4>Question 1</h4>
+            </div>
+            <div class="form-group col-sm-12">
+                <label for="goingOut">You enjoy going out...Please get me out of my house!!</label>
+                <select id="goingOut" class="form-control">
+                    <option selected>Choose one option</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                    <option value="4">4 (Agree)</option>
+                    <option value="3">3 (I do not really care)</option>
+                    <option value="2">2 (Disagree)</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                </select>
+            </div>
+            <div class="row question mt-5">
+                <h4>Question 2</h4>
+            </div>
+            <div class="form-group col-sm-12">
+                <label for="dance">You like to dance any music. I do not care I just need some noise.</label>
+                <select id="dance" class="form-control">
+                    <option selected>Choose one option</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                    <option value="4">4 (Agree)</option>
+                    <option value="3">3 (I do not really care)</option>
+                    <option value="2">2 (Disagree)</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                </select>
+            </div>
+            <div class="row question mt-5">
+                <h4>Question 3</h4>
+            </div>
+            <div class="form-group col-sm-12">
+                <label for="drink">You like to drink, it does not matter if it is water aslong as you are surrounded by
+                    people.</label>
+                <select id="drink" class="form-control">
+                    <option selected>Choose one option</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                    <option value="4">4 (Agree)</option>
+                    <option value="3">3 (I do not really care)</option>
+                    <option value="2">2 (Disagree)</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                </select>
+            </div>
+            <div class="row question mt-5">
+                <h4>Question 4</h4>
+            </div>
+            <div class="form-group col-sm-12">
+                <label for="newExp">You are open to new experiences... I do not know what that is but I want to know
+                    what
+                    it tastes like.</label>
+                <select id="newExp" class="form-control">
+                    <option selected>Choose one option</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                    <option value="4">4 (Agree)</option>
+                    <option value="3">3 (I do not really care)</option>
+                    <option value="2">2 (Disagree)</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                </select>
+            </div>
+            <div class="row question mt-5">
+                <h4>Question 5</h4>
+            </div>
+            <div class="form-group col-sm-12">
+                <label for="festivals">You love festivals and special events.</label>
+                <select id="festivals" class="form-control">
+                    <option selected>Choose one option</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                    <option value="4">4 (Agree)</option>
+                    <option value="3">3 (I do not really care)</option>
+                    <option value="2">2 (Disagree)</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                </select>
+            </div>
+            <div class="row question mt-5">
+                <h4>Question 6</h4>
+            </div>
+            <div class="form-group col-sm-12">
+                <label for="spiritual">You are as spiritual as you can, meaning...you are always at church.</label>
+                <select id="spiritual" class="form-control">
+                    <option selected>Choose one option</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                    <option value="4">4 (Agree)</option>
+                    <option value="3">3 (I do not really care)</option>
+                    <option value="2">2 (Disagree)</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                </select>
+            </div>
+            <div class="row question mt-5">
+                <h4>Question 7</h4>
+            </div>
+            <div class="form-group col-sm-12">
+                <label for="attachment">I am attahced to people in relationships as a baby to his/her mother.</label>
+                <select id="attachment" class="form-control">
+                    <option selected>Choose one option</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                    <option value="4">4 (Agree)</option>
+                    <option value="3">3 (I do not really care)</option>
+                    <option value="2">2 (Disagree)</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                </select>
+            </div>
+            <div class="row question mt-5">
+                <h4>Question 8</h4>
+            </div>
+            <div class="form-group col-sm-12">
+                <label for="likeRead">You would like to read every day.</label>
+                <select id="likeRead" class="form-control">
+                    <option selected>Choose one option</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                    <option value="4">4 (Agree)</option>
+                    <option value="3">3 (I do not really care)</option>
+                    <option value="2">2 (Disagree)</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                </select>
+            </div>
+            <div class="row question mt-5">
+                <h4>Question 9</h4>
+            </div>
+            <div class="form-group col-sm-12">
+                <label for="actualRead">You actually read every day :)</label>
+                <select id="actualRead" class="form-control">
+                    <option selected>Choose one option</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                    <option value="4">4 (Agree)</option>
+                    <option value="3">3 (I do not really care)</option>
+                    <option value="2">2 (Disagree)</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                </select>
+            </div>
+            <div class="row question mt-5">
+                <h4>Question 10</h4>
+            </div>
+            <div class="form-group col-sm-12">
+                <label for="sex">Do you even like sex ?</label>
+                <select id="sex" class="form-control">
+                    <option selected>Choose one option</option>
+                    <option value="5">5 (Strongly Agree)</option>
+                    <option value="4">4 (Agree)</option>
+                    <option value="3">3 (I do not really care)</option>
+                    <option value="2">2 (Disagree)</option>
+                    <option value="1">1 (Strongly Disagree)</option>
+                </select>
+            </div>
+            <br>
+            <div class="row question">
+                <div class="col-md-5 col-sm-0"></div>
+                <div class="col-md-2 col-sm-12">
+                    <button id="submit" type="submit" class="btn btn-primary mx-auto">Submit Form</button>
+                </div>
+                <div class="col-md-5 col-sm-0"></div>
+            </div>
+            <br>
+        </form>
     </div>
 
     <footer class="footer">
@@ -128,43 +213,93 @@
         </div>
     </footer>
 
-    <!-- JS File -->
-    <!-- <script src="surveyInfo.js"></script> -->
-
     <!-- Bootstrap JS links -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+
+    <!-- JS File -->
+    <script>
+        $(document).ready(function () {
+
+            $("#submit").click(function (event) {
+                event.preventDefault();
+
+                let user = $("input#userName").val().trim();
+                let face = $("input#facebookLink").val().trim();
+                let q1 = $("select#goingOut").val();
+                let q2 = $("select#dance").val();
+                let q3 = $("select#drink").val();
+                let q4 = $("select#newExp").val();
+                let q5 = $("select#festivals").val();
+                let q6 = $("select#spiritual").val();
+                let q7 = $("select#attachment").val();
+                let q8 = $("select#likeRead").val();
+                let q9 = $("select#actualRead").val();
+                let q10 = $("select#sex").val();
+
+                // console.log(user);
+                // console.log(face);
+                // console.log(q1);
+                // console.log(q2);
+                // console.log(q3);
+                // console.log(q4);
+                // console.log(q5);
+                // console.log(q6);
+                // console.log(q7);
+                // console.log(q8);
+                // console.log(q9);
+                // console.log(q10);
+
+                // Form validation
+                function validateForm() {
+                    var isValid = true;
+                    $(".form-control").each(function () {
+                        if ($(this).val() === "") {
+                            isValid = false;
+                        }
+                    });
+
+                    $(".chosen-select").each(function () {
+
+                        if ($(this).val() === "") {
+                            isValid = false;
+                        }
+                    });
+                    return isValid;
+                }
+
+                if (validateForm()) {
+                    let newUser = {
+                        name: user,
+                        faceLink: face,
+                        scores: [
+                            q1,
+                            q2,
+                            q3,
+                            q4,
+                            q5,
+                            q6,
+                            q7,
+                            q8,
+                            q9,
+                            q10
+                        ]
+                    };
+                    // console.log(newUser);
+
+                    $.post("/api/friends", newUser, function (data) {
+                    });
+                }
+                else {
+                    alert("Please fill all the form.");
+                }
+            });
+        })
+
+    </script>
+
 </body>
 
 </html>
-
-<script type="text/javascript">
-
-    $("#submit").on("click", function (event) {
-        event.preventDefault();
-
-        const newCustomer = {
-            customerName: $("#userName").val().trim(),
-            customerPicture: $("#photoImage").val().trim(),
-            goingOut: $("#goingOut").val().trim(),
-            danceSkill: $("#dance").val().trim(),
-            drinking: $("#drink").val().trim(),
-            experiences: $("#newExp").val().trim(),
-            festival: $("#festivals").val().trim()
-        };
-
-        console.log(newCustomer);
-
-        $("#userName").val("");
-        $("#photoImage").val("");
-        $("#goingOut").val("");
-        $("#dance").val("");
-        $("#drink").val("");
-        $("#newExp").val("");
-        $("#festivals").val("");
-    });
-</script>
