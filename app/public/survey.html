@@ -213,6 +213,49 @@
         </div>
     </footer>
 
+    <!-- Incomplete information Modal -->
+    <div class="modal fade" id="incompleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Incomplete Form</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Please fill all the information in the form.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Best Match Modal -->
+    <div class="modal fade" id="matchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Your Best Match is</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Please fill all the information in the form.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Bootstrap JS links -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
@@ -224,7 +267,7 @@
         $(document).ready(function () {
 
             $("#submit").click(function (event) {
-                event.preventDefault();
+                // event.preventDefault();
 
                 let user = $("input#userName").val().trim();
                 let face = $("input#facebookLink").val().trim();
@@ -288,12 +331,17 @@
                         ]
                     };
                     // console.log(newUser);
-
                     $.post("/api/friends", newUser, function (data) {
                     });
+
+
+
                 }
                 else {
-                    alert("Please fill all the form.");
+                    $('#incompleteModal').modal({
+                        focus: true,
+                        show: true
+                    });
                 }
             });
         })
