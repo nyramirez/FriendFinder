@@ -8,10 +8,15 @@ module.exports = function (app) {
 
     // Create a new friend
     app.post("/api/friends", function (req, res) {
+        let bestMatch = {
+            name: "",
+            faceLink: ""
+        };
+
         let newUser = req.body;
         newUser.routeName = newUser.name.replace(/\s+/g, "").toLowerCase();
         friendList.push(newUser);
-        res.json(newUser);
+        // res.json(newUser);
         console.log(newUser.scores);
         let sLength = newUser.scores.length;
         let flLength = friendList.length;
@@ -41,19 +46,23 @@ module.exports = function (app) {
         console.log(diffTotalArray);
 
         // Finding the lowest value in the Array.
-        Array.min = function( diffTotalArray ){
-            return Math.min.apply( Math, diffTotalArray );
+        Array.min = function (diffTotalArray) {
+            return Math.min.apply(Math, diffTotalArray);
         };
         let minimum = Array.min(diffTotalArray);
         console.log("This is the lowest value");
         console.log(minimum);
 
         let index = diffTotalArray.indexOf(minimum);
-        console.log("this is the index");
-        console.log(index);
+        console.log("this is the index " + index);
+        // console.log(friendList[index]);
 
+        bestMatch.name = friendList[index].name;
+        bestMatch.faceLink = friendList[index].faceLink;
+
+        console.log(bestMatch);
+        res.json(bestMatch);
         
-
     });
 
 };

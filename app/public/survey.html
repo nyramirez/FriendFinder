@@ -235,8 +235,7 @@
     </div>
 
     <!-- Best Match Modal -->
-    <div class="modal fade" id="matchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="matchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -245,8 +244,10 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
-                    Please fill all the information in the form.
+                <div id="modal-body-match">
+                    <h2 id="matchName"></h2>
+                    <br>
+                    <h5 id="matchFaceLink"></h5>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -267,7 +268,7 @@
         $(document).ready(function () {
 
             $("#submit").click(function (event) {
-                // event.preventDefault();
+                event.preventDefault();
 
                 let user = $("input#userName").val().trim();
                 let face = $("input#facebookLink").val().trim();
@@ -332,9 +333,27 @@
                     };
                     // console.log(newUser);
                     $.post("/api/friends", newUser, function (data) {
+
+                        $("#matchName").text(data.name);
+                        $("#matchFaceLink").text(data.faceLink);
+                        $("#matchModal").modal({
+                            focus: true,
+                            show: true
+                        });
+
+                        $("input#userName") = "";
+                        $("input#facebookLink") = "";
+                        $("select#goingOut").prop('selectedIndex', null);
+                        $("select#dance").prop('selectedIndex', null);
+                        $("select#drink").prop('selectedIndex', null);
+                        $("select#newExp").prop('selectedIndex', null);
+                        $("select#festivals").prop('selectedIndex', null);
+                        $("select#spiritual").prop('selectedIndex', null);
+                        $("select#attachment").prop('selectedIndex', null);
+                        $("select#likeRead").prop('selectedIndex', null);
+                        $("select#actualRead").prop('selectedIndex', null);
+                        $("select#sex").prop('selectedIndex', null);
                     });
-
-
 
                 }
                 else {
